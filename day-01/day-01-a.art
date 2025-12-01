@@ -1,0 +1,7 @@
+commands: map read.lines ./"input.txt" => [join.with:" " split.at:1 &]
+
+L: function [d].export:[V]-> zero? let 'V <= (V-d) % 100
+R: function [d].export:[V]-> zero? let 'V <= (V+d) % 100
+
+V: 50
+print enumerate commands => do

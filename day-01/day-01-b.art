@@ -1,0 +1,14 @@
+commands: map read.lines ./"input.txt" => [join.with:" " split.at:1 &]
+
+L: function [d].export:[V][
+    let 'V ((startV: <= V) - d) % 100
+    enumerate d 'i -> zero? (startV - i) % 100
+]
+
+R: function [d].export:[V][
+    let 'V ((startV: <= V) + d) % 100
+    enumerate d 'i -> zero? (startV + i) % 100
+]
+
+V: 50
+print sum map commands => do
