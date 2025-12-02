@@ -1,0 +1,6 @@
+src: read ./"input.txt"
+ids: flatten @ to :block replace src {/(\d+)-/} {@$1..}
+
+print sum select ids 'id ->
+    and? -> even? size s: <= to :string id
+         -> one? unique split.at:(size s)/2 s
