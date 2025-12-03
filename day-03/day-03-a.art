@@ -1,0 +1,5 @@
+banks: map read.lines ./"input.txt" => [to [:integer] split &]
+
+banks | map 'bank -> @[max drop.times: (inc index bank m: <= max chop bank) bank, m]
+      | map 'x -> x\0 + 10*x\1
+      | sum | print
