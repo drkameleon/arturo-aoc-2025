@@ -1,0 +1,14 @@
+tbl: read.lines ./"input.txt"
+
+r: repeat "/" 2 + s: <= size tbl
+tbl: @[r] ++ (map tbl 'l -> "/" ++ l ++ "/") ++ @[r]
+
+print enumerate permutate.repeated.by:2 @1..s 'pos ::
+    [x,y]: pos
+    using tbl :: 
+        and? -> \[x]\[y] = '@'
+             -> 4 > enumerate @[
+                \[x-1]\[y-1] \[x-1]\[y] \[x-1]\[y+1]
+                \[x]\[y-1]   \[x]\[y+1] 
+                \[x+1]\[y-1] \[x+1]\[y] \[x+1]\[y+1]
+             ] => [& = '@']
