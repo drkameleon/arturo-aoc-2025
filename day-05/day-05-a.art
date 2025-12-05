@@ -1,0 +1,4 @@
+src: replace read ./"input.txt" "-" ".."
+[fresh, ids]: cluster @ to :block src  => range?
+print enumerate ids 'id ->
+    some? fresh 'f -> id <=> first f last f
