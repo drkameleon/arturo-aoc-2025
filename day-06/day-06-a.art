@@ -1,0 +1,4 @@
+lines: map read.lines ./"input.txt" => [split.words &]
+ops: pop 'lines
+print sum map 0..dec size first lines 'col ->
+    do join.with:ops\[col] map lines 'line -> line\[col]
